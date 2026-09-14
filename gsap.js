@@ -21,13 +21,13 @@ let tl = gsap.timeline();
 
 tl.from("#heading",{
     opacity:0,
-    x:100,
+    x:30,
     duration:1,
     delay:0.5
 })
 tl.from(".blocktext",{
     opacity:0,
-    x:100,
+    x:30,
     duration:1,
 })
 tl.from(".leftsmalltxt",{
@@ -72,7 +72,7 @@ tl.from(".box3",{
 gsap.from(".elem-1 h1",{
     opacity:0,
     duration:2,
-    x:500,
+    x:100,
     scrollTrigger:{
         trigger:".elem-1 h1",
         scroller:"body",
@@ -95,7 +95,7 @@ gsap.from(".elem-1 h5",{
 gsap.from(".elem-2 h1",{
     opacity:0,
     duration:2,
-    x:500,
+    x:100,
     scrollTrigger:{
         trigger:".elem-1 h1",
         scroller:"body",
@@ -118,7 +118,7 @@ gsap.from(".elem-2 h5",{
 gsap.from(".elem-3 h1",{
     opacity:0,
     duration:2,
-    x:500,
+    x:100,
     scrollTrigger:{
         trigger:".elem-1 h1",
         scroller:"body",
@@ -141,7 +141,7 @@ gsap.from(".elem-3 h5",{
 gsap.from(".elem-4 h1",{
     opacity:0,
     duration:2,
-    x:500,
+    x:100,
     scrollTrigger:{
         trigger:".elem-1 h1",
         scroller:"body",
@@ -192,3 +192,69 @@ gsap.from(".about .about_text",{
         scrub:true,
     }
 })
+
+
+
+//EFFECTS HOVER
+
+const box = document.querySelector('#nav h3');
+const twoLeaves = document.querySelector('.elem-4 a h1');
+
+// Create a paused timeline for the hover state
+const t3 = gsap.timeline({ paused: true, reversed: true });
+
+
+// Define the animation properties
+t3.to(box, {
+  scale: 1.1,
+  cursor:"pointer",
+  color: " rgb(75, 187, 236)",
+  duration: 0.3,
+  ease: 'power1.out'
+});
+
+// Play animation on mouse enter
+box.addEventListener('mouseenter', () => {
+  t3.play();
+});
+
+// Reverse animation on mouse leave
+box.addEventListener('mouseleave', () => {
+  t3.reverse();
+});
+
+const t4 = gsap.timeline({ paused: true, reversed: true });
+t4.to(twoLeaves, {
+   scale: 1.1,
+  cursor:"pointer",
+  color: " rgb(23, 215, 138)",
+  duration: 0.3,
+  ease: 'power1.out'
+})
+
+twoLeaves.addEventListener("mouseenter",()=>{
+    t4.play();
+})
+
+twoLeaves.addEventListener('mouseleave', () => {
+  t4.reverse();
+});
+
+
+const t5 = gsap.timeline({paused:true, reverse:true});
+
+const button = document.querySelector(".lets-talk");
+
+t5.to(button,{
+    borderColor:" rgb(18, 238, 238)",
+    duration:0.5,
+    scale:1.1,
+})
+
+button.addEventListener("mouseenter",()=>{
+    t5.play();
+})
+button.addEventListener("mouseleave",()=>{
+    t5.reverse();
+})
+
